@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title><%= heading %></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/home.css">
+    </head>
+    <body>
+        <div class="inner-div">
+            <div class="input-sec row justify-content-around">
+                <!-- Input taken from user based on details habit and day will be added in habits list -->
+                <form action="/create/input" method="POST" class="row">
+                    <input class="col-5" type="text" name="HabitName" id="addingTask" placeholder="Enter habit" required>
+                    <img class="col-2"src="https://cdn-icons-png.flaticon.com/512/3588/3588658.png" ></img>
+                    <input class="col-5" type="number" name="Days" id="addingTask" placeholder="Enter Days" required>
+                    <button type="submit"><i class="fa-solid fa-2x fa-plus plus-icon"></i></button>
+                </form>
+            </div>
+            <div class="habits-list">
+                <% if(HabitsObj.length >= 1){ %>
+                    <!-- Running loop for get all the habits present in the database -->
+                    <!-- Each habitsObjects are separated -->
+                    <% for(let i of HabitsObj){ %>
+                        <div class="Habit">
+                            <!-- Habit name -->
+                            <div class="habit-name">
+                                <i class="fa-solid fa-bolt"></i>
+                                &nbsp;
+                                <%= i.HabitName %>                                    
+                            </div>
+                            <div class="habits-details">
+                                <div class="completion-days" >
+                                    
+                                    <% for(let j = 1; j<=i.Days; j++){ %>
+                                        <%if(j > i.DaysCount){ %>
+                                            <div class="day">
+                                                <%= j %>
+                                            </div>
+                                        <%} else{%>
+                                            <img src="../assets/images/complete.png"/>
+                                        <%}%>
+                                        
+                                    <%}%>
+                                </div>
+                                <div class="days-left-and-complete">
+                                    
+                                        <%if(i.DaysCount === i.Days){%>
+                                            <p class="days-left" style="color: green; text-shadow: 0px 0px 5px greenyellow;">Completed</p>
+                                        <%}else{%>
+                                            <p class="days-left"><%=i.Days - i.DaysCount%> Days left</p>
+                                        <%}%>
+                                    </p>
+                                    <div class="completion_button">
+                                        <a href="/create/daysCount/<%= i.id %>">
+                                            <img src="../assets/images/mark.png" alt="complete"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="delete-btn">
+                                    <a href="/create/destroy/<%= i.id %>">
+                                        <p>X</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    <%}%>
+                <%}%>
+            </div>
+        </div>
+        <script src="https://kit.fontawesome.com/91b25f8033.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+</html>

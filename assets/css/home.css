@@ -1,0 +1,242 @@
+/*Customize inner div*/
+
+.inner-div{
+    height:100%;
+    width: 100vw;
+    background: #ca89f5;
+    box-shadow: 0px 0px 10px 1px black;
+}
+/* Customize the input section */
+
+.input-sec{
+    position:relative;
+    top:0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    width: 100%;
+    z-index: 10;
+    padding-top: 10px;
+    margin: auto;
+    background-color: inherit;
+}
+
+@keyframes zoom{
+    0%{
+        transform: scale(0.97);
+    }
+    100%{
+        transform: scale(1.03);
+    }
+    
+}
+
+.input-sec img{
+    animation: zoom ease-in-out .5s alternate infinite;
+}
+
+/* Customize the input box */
+
+input{
+    position:relative;
+    top: 70px;
+    height:70px;
+    padding-left:9%;
+    border:2px solid black;
+    border-radius:20px ;
+    font-family: Monospace;
+    font-size: 1.5rem;
+    transition:all .5s;
+}
+
+/* Mouse hover over effect on input  */
+
+input:hover{
+    background-color: azure;
+    box-shadow: white 0px 0px 5px 5px;
+}
+
+/* Customize input section button */
+
+.input-sec button{
+    position:relative;
+    top: 10px;
+    height:60px;
+    width: 100px;
+    margin: auto;
+    border-radius: 20px;
+    z-index: 10;
+    transition:all .5s ease-in-out;
+}
+
+/* Mouse hover over effect on input section button */
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+.input-sec button:hover{
+    background-color: azure;
+    box-shadow: white 0px 0px 5px 5px;
+    width: 100%;
+    .plus-icon{
+        animation:rotate 1 .5s linear;
+    }
+    
+}
+.habits-list{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding-top: 30px;
+    flex-wrap: wrap;
+    overflow-y: auto;    
+}
+
+/* Customize habits list */
+
+.Habit{
+    position: relative;
+    height: 300px;
+    width: 40%;
+    border-radius: 20px;
+    border: 1px solid gray;
+    background-color: aliceblue;
+    transition: all .7s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Hover overing effect on habits list */
+
+.Habit:hover{
+    transform: scale(1.07);
+    box-shadow: whitesmoke 0px 0px 5px 5px;
+} 
+
+.habit-name{
+    height: 25%;
+    background-color:orange;
+    border-radius:0px;
+    padding: 5px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    border-radius:19px ;
+    font-weight:600;
+}
+.habits-details{
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.completion-days{
+    position: relative;
+    height: 70%;
+    width: 65%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    padding-top: 20px;
+}
+.day{
+    height: 40px;
+    width: 40px;
+    background-color: lightblue;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.completion-days img{
+    height: 40px;
+}
+.completion_button img{
+    margin-top: -20px;
+    height: 120px;
+}
+.days-left-and-complete{
+    height: 70%;
+    background-color: white;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.2rem;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+}
+
+@keyframes bell-act{
+    0%{
+        transform: scale(0.90);
+    }
+    /* 50%{
+        transform: scale(1);
+    } */
+    100%{
+        transform: scale(1.10);
+    }
+}
+.delete-btn a{
+    all: unset;
+}
+.delete-btn p{
+    height: 30px;
+    width: 30px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    background-color: red;
+    padding: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    border-radius: 50%;
+
+}
+.delete-btn{
+    position: absolute;
+    right: -10px;
+    top: -10px; 
+}
+
+
+/* delete button animation initialzer */
+
+.delete-btn:hover{
+    cursor: pointer;
+    animation: bell-act ease-in-out .5s alternate infinite;
+
+}
+
+/* Scroll bar customization */
+
+::-webkit-scrollbar {
+width:7px;
+border-radius: 50%;
+}
+::-webkit-scrollbar-track {
+background: white;
+display: none;
+}
+::-webkit-scrollbar-thumb {
+background-color: lightblue;
+border-radius: 20px;
+border: 1px solid white;
+}
